@@ -6,8 +6,15 @@ pipeline so the data is available in elasticsearch for analysis and viewing.  Yo
 
 Confluent documentation can be found at: https://docs.confluent.io/platform/current/platform.html
 
-# Usage:
+# Requirements:  
+VM with ubuntu and docker/docker-compose installed.  If you don't have that, please look at the bottom of this README file
 
+# Steps to install:
+1) ssh to ubuntu box and clone this repo:  git clone https://github.com/soumukhe/ndi-kafka-elasticsearch-kibana.git
+2) cd ndi-kafka-elasticsearch-kibana
+3) run the fixIP script with the IP of the VM.  For example  ./fixIP 10.10.140.10
+3) docker-compose up -d 
+4) make sure to do a docker ps to verify that container is up and running
 
 # Configuring NDI to export data:
 Please see unofficalaciguide.com
