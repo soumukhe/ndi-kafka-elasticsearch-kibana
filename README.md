@@ -20,7 +20,7 @@ VM with ubuntu and docker/docker-compose installed.  If you don't have that, ple
 2) cd ndi-kafka-elasticsearch-kibana
 3) run the fixIP script with the IP of the VM.  For example  ./fixIP 10.10.140.10
 3) docker-compose up -d 
-4) make sure to do a docker ps to verify that container is up and running
+4) make sure to do a docker ps to verify that all 8 associated containers are up and running
 
 ```
 You should have 8 cotainers running as shown below:
