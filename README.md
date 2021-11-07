@@ -34,6 +34,12 @@ aciadmin@DMZ-Ubuntu-Jump-User:~/ndi-kafka-elasticsearch-kibana$ docker ps --form
      6  ksqldb
      7  schema-registry
      8  zookeeper
+     
+after the containers come up, please repeat the command "docker ps --format '{{ .Names }}' | sort |nl"  after a few minutes.
+What I noticed is that ksqldb might have crashed.  If this is the case,  just do "docker-compose up -d" again and then ksqldb will be stable
+
+you can always check logs for ksqldb by:   docker logs -f ksqldb
+    
 ```
 
 # Configuring NDI to export data:
