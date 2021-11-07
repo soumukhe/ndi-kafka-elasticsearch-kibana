@@ -22,6 +22,20 @@ VM with ubuntu and docker/docker-compose installed.  If you don't have that, ple
 3) docker-compose up -d 
 4) make sure to do a docker ps to verify that container is up and running
 
+```
+You should have 8 cotainers running as shown below:
+
+aciadmin@DMZ-Ubuntu-Jump-User:~/ndi-kafka-elasticsearch-kibana$ docker ps --format '{{ .Names }}' | sort |nl
+     1  broker
+     2  elasticsearch
+     3  kafkacat
+     4  kafka-connect
+     5  kibana
+     6  ksqldb
+     7  schema-registry
+     8  zookeeper
+```
+
 # Configuring NDI to export data:
 Please see unofficalaciguide.com
 
