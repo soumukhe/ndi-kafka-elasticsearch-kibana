@@ -1,11 +1,15 @@
 ---
 version: '2'
+networks:
+   elk:
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:6.1.0
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - elk
 
   broker:
     image: confluentinc/cp-kafka:6.1.0
@@ -37,6 +41,8 @@ services:
       # Useful settings for development/laptop use - modify as needed for Prod
       # This one makes ksqlDB feel a bit more responsive when queries start running
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+    networks:
+       - elk
 
   schema-registry:
     image: confluentinc/cp-schema-registry:6.1.0
@@ -49,6 +55,8 @@ services:
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: broker:29092
+    networks:
+       - elk
 
   kafka-connect:
     image: confluentinc/cp-kafka-connect-base:6.1.0
@@ -99,6 +107,8 @@ services:
         /etc/confluent/docker/run & 
         #
         sleep infinity
+    networks:
+      - elk
 
   ksqldb:
     image: confluentinc/ksqldb-server:0.15.0
@@ -118,6 +128,9 @@ services:
       KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       KSQL_KSQL_SERVICE_ID: confluent_rmoff_01
       KSQL_KSQL_HIDDEN_TOPICS: '^_.*'
+    networks:
+      - elk
+
 
 # Other systems
   elasticsearch:
@@ -129,6 +142,8 @@ services:
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
       discovery.type: "single-node"
       node.store.allow_mmap: "false"
+    networks:
+      - elk
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.11.0
@@ -139,6 +154,8 @@ services:
       - 5601:5601
     environment:
       discovery.type: "single-node"
+    networks:
+      - elk
 
   kafkacat:
     image: edenhill/kafkacat:1.7.0-PRE1
@@ -149,6 +166,8 @@ services:
       - |
         apk add jq; 
         while [ 1 -eq 1 ];do sleep 60;done
+    networks:
+      - elk
 
 #  logstash:
 #     image: logstash:7.7.0
