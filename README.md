@@ -10,7 +10,7 @@ Confluent documentation can be found at: https://docs.confluent.io/platform/curr
 ```
 a) there is a fixIP script that needs to be run so that you can successfully export data from NDI to the Kafka Consumer
 b) logstash container is also configured, but commented out, since for this case we will use Kafka Connect.  If you needed to run logstash, please comment out the logstash block from docker-compose.yaml
-c) added network: elk:
+c) added network: elk
 ```
 
 # Requirements:  
