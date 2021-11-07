@@ -178,3 +178,5 @@ services:
 #       - elasticsearch:elasticsearch
 #     depends_on:
 #     - elasticsearch
+#     networks:
+#       - elk
