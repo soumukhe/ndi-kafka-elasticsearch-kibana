@@ -56,7 +56,7 @@ Please see unofficalaciguide.com
    apt auto-remove
    apt install -y curl wget vim openssh-server
 4) Install docker and docker-compose:
-   ssh to your Ubuntu VM on backend APIM EPG
+   ssh to your Ubuntu VM 
    sudo -i
    apt-get update && apt-get upgrade -y
    echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
