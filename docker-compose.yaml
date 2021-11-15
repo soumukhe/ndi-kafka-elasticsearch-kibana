@@ -87,7 +87,7 @@ services:
       #   mv ./connectors/confluent-hub-components/* ./connectors
       #   rm -rf ./connectors/confluent-hub-components
     volumes:
-      - /home/aciadmin/gitstuff/kafka-with-connect_elastisearch/connectors:/connectors
+      - $PWD/connectors:/connectors
     # In the command section, $ are replaced with 12415 to avoid the error 'Invalid interpolation format for "command" option'
     command: 
       - bash 
