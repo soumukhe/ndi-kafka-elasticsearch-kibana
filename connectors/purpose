@@ -1,0 +1,2 @@
+ This is a directory for use for kafka-connect
+ docker-compose defines this as volume mount for kafka-connect 
